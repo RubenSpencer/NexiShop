@@ -1,19 +1,30 @@
 <?php
 
-$host = "localhost";
-$dbname = "ecommerce";
-$user = "root";
-$password = "";
+class Database {
 
-try {
-    $pdo = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=utf8",
-        $user,
-        $password
-    );
+    public static function connect() {
 
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $host = "localhost";
+        $dbname = "nexishop";
+        $username = "root";
+        $password = "";
 
-} catch(PDOException $e) {
-    die("Erreur : " . $e->getMessage());
+        try {
+
+            $pdo = new PDO(
+                "mysql:host=$host;dbname=$dbname;charset=utf8",
+                $username,
+                $password
+            );
+
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            return $pdo;
+
+        } catch (PDOException $e) {
+
+            die("Erreur DB : " . $e->getMessage());
+
+        }
+    }
 }

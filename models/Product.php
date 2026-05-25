@@ -1,3 +1,17 @@
 <?php
 
-class Product {}
+class Product {
+
+    private $pdo;
+
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
+    }
+
+    // récupérer tous les produits
+    public function getAll() {
+        $stmt = $this->pdo->query("SELECT * FROM products");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
