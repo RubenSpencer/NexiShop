@@ -22,6 +22,9 @@ $products = $products ?? [];
                 <p class="card-text">
                     <?= $product['description'] ?>
                 </p>
+                <a href="/NexiShop/views/cart/add.php?id=<?= $product['id'] ?>" class="btn btn-primary">
+                    Ajouter au panier
+                </a>
 
                 <strong>
                     <?= $product['price'] ?> €
