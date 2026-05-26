@@ -1,5 +1,10 @@
-<?php include 'header.php'; ?>
-<?php include 'navbar.php'; ?>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+<?php include __DIR__ . '/header.php'; ?>
+<?php include __DIR__ . '/navbar.php'; ?>
 
 <main class="container mt-4">
     <?= $content ?? '' ?>

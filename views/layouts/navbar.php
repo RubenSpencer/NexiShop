@@ -36,13 +36,13 @@
     <?php else: ?>
 
         <li class="nav-item">
-            <a class="nav-link" href="/NexiShop/views/auth/login.php">
+            <a class="nav-link" href="/NexiShop/login.php">
                 Connexion
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="/NexiShop/views/auth/register.php">
+            <a class="nav-link" href="/NexiShop/register.php">
                 Inscription
             </a>
         </li>

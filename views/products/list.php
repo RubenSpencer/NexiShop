@@ -7,7 +7,7 @@ $products = $products ?? [];
 
 <div class="row">
 <!-- bare de recherche -->
-<div class="container-fluid bg-light p-3 mb-4">
+<div class="container-fluid">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
       <button class="btn btn-outline-success" type="submit">Search</button>
@@ -49,5 +49,5 @@ $products = $products ?? [];
 
 <?php
 $content = ob_get_clean();
-include "views/layouts/app.php";
+include __DIR__ . '/../layouts/app.php';
 ?>

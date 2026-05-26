@@ -1,6 +1,2 @@
 <?php
-
-require_once 'routes/web.php';
-
-?>
-
+require_once __DIR__ . '/views/home/index.php';

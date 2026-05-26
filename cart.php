@@ -1,7 +1,7 @@
 <?php
+require_once "includes/session.php";
 require_once "views/layouts/header.php";
 require_once "views/layouts/navbar.php";
-require_once "includes/session.php";
 require_once "config/database.php";
 
 $pdo = Database::connect();
