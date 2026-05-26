@@ -1,7 +1,6 @@
 # NexiShop
-<<<<<<< HEAD
+## Installation base de données
 
-Projet e-commerce BTS SIO.
-=======
-Site NexiShop 
->>>>>>> d00129317d61709736b1b53c22e7b6064447b535
+1. Créer une base `nexishop`
+2. Importer `database/ecommerce.sql`
+3. Configurer `config/database.php`

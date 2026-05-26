@@ -25,6 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+<button><a href="/NexiShop/index.php">retour à la page d'accueil</a></button>
+
 <h1>Connexion</h1>
 <form method="POST">
 

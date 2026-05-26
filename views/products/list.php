@@ -6,6 +6,13 @@ $products = $products ?? [];
 <h1 class="mb-4">Liste des produits</h1>
 
 <div class="row">
+<!-- bare de recherche -->
+<div class="container-fluid bg-light p-3 mb-4">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
 
 <?php foreach ($products as $product): ?>
 
