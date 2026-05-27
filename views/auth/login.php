@@ -1,7 +1,7 @@
 <?php
-require_once "../../includes/session.php";
-require_once "../../config/database.php";
-require_once "../../controllers/UserController.php";
+require_once __DIR__ . "/../../includes/session.php";
+require_once __DIR__ . "/../../config/database.php";
+require_once __DIR__ . "/../../controllers/UserController.php";
 
 $pdo = Database::connect();
 
@@ -14,8 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     if ($success) {
+        if ($_SESSION['user']['role'] === 'admin') {
 
-        echo "Connexion réussie !";
+            header("Location: /NexiShop/admin/gestion-product.php");
+         exit;
+
+    }    else {
+
+            header("Location: /NexiShop/index.php");
+        exit;
+        }
+        
 
     } else {
 
@@ -23,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 }
+
+
+
 ?>
 
 <button><a href="/NexiShop/index.php">retour à la page d'accueil</a></button>

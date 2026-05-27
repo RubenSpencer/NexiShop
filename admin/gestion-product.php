@@ -6,10 +6,10 @@ require_once __DIR__ . "/../config/database.php";
 
 $pdo = Database::connect();
 
-// if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-//     header("Location: /NexiShop/index.php");
-//     exit;
-// }
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
+    header("Location: /NexiShop/index.php");
+    exit;
+}
 
 ?>
 

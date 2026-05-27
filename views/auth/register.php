@@ -1,7 +1,7 @@
 <?php
-require_once "../../includes/session.php";
-require_once "../../config/database.php";
-require_once "../../controllers/UserController.php";
+require_once __DIR__ . "/../../includes/session.php";
+require_once __DIR__ . "/../../config/database.php";
+require_once __DIR__ . "/../../controllers/UserController.php";
 
 $pdo = Database::connect();
 
