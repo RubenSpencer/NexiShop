@@ -16,6 +16,13 @@
     <li class="nav-item">
         <a class="nav-link" href="/NexiShop/cart.php">Panier</a>
     </li>
+<!-- fonction pour l'admin si connecter en tant qu'admin -->
+    <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin'): ?>
+        <li class="nav-item">
+            <a class="nav-link" href="/NexiShop/admin/gestion-product.php">Administration</a>
+        </li>
+    <?php endif; ?>
+
 </ul>
 <!-- connection inscription -->
 <ul class="navbar-nav ms-auto"> 
