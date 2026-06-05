@@ -42,13 +42,14 @@ if(isset($_POST['update_product'])){
         $uploadDir = __DIR__ . "/../uploads/";
         $destPath = $uploadDir . $imageName;
 
-        if(move_uploaded_file($imageTmpPath, $destPath)){
+        if (move_uploaded_file($imageTmpPath, $destPath)) {
             // Met les produits dans la base de données
             $update_sql = "UPDATE products SET name='$name', description='$description', price='$price', image='$imageName', stock='$stock' WHERE id=$id";
-
-            $result = $pdo->exec($update_sql); // ça permet d'éviter que le code constate une erreur qui on ne modifie rien MySQL constate que les enciennes données = Nouvelles données
-
-            if($pdo->exec($update_sql)){
+            // ça permet d'éviter que le code constate une erreur lorsque rien ne change ; MySQL considère alors les anciennes données comme identiques aux nouvelles données
+            $result = $pdo->exec($update_sql);
+            // $result = pdo->exec($update_sql);
+            
+            if ($result !== false) {
                 echo "<div class='alert alert-success'>Produit modifié avec succès !</div>";
             } else {
                 echo "<div class='alert alert-danger'>Erreur lors de la modification du produit : " . $pdo->errorInfo()[2] . "</div>";
@@ -59,11 +60,9 @@ if(isset($_POST['update_product'])){
     } else {
         // Si aucune nouvelle image n'est téléchargée, on met à jour les autres champs sans changer l'image
         $update_sql = "UPDATE products SET name='$name', description='$description', price='$price', stock='$stock' WHERE id=$id";
+        $result = $pdo->exec($update_sql);
 
-
-        $result = $pdo->exec($update_sql); // exec() est utilisé pour les requêtes qui ne retournent pas de résultats (INSERT, UPDATE, DELETE). Il retourne le nombre de lignes affectées ou false en cas d'erreur.
-
-        if($pdo->exec($update_sql)){
+        if ($result !== false) {
             echo "<div class='alert alert-success'>Produit modifié avec succès !</div>";
         } else {
             echo "<div class='alert alert-danger'>Erreur lors de la modification du produit : " . $pdo->errorInfo()[2] . "</div>";

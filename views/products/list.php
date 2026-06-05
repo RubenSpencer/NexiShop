@@ -1,18 +1,38 @@
-<?php 
-ob_start(); 
-$products = $products ?? [];
+<?php
+ob_start();
+require_once __DIR__ . "/../../config/database.php";
+
+$pdo = Database::connect();
+
+$search = $_GET['search'] ?? '';
+
+if (!empty($search)) {
+    $stmt = $pdo->prepare("
+        SELECT * FROM products
+        WHERE name LIKE ? OR description LIKE ?
+    ");
+    $stmt->execute(["%$search%", "%$search%"]);
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $products = $pdo->query("SELECT * FROM products")->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
 
 <h1 class="mb-4">Liste des produits</h1>
 
 <div class="row">
-<!-- bare de recherche -->
-<div class="container-fluid mb-4">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
+
+<form class="d-flex mb-3" method="GET">
+    <input class="form-control me-2"
+           type="search"
+           name="search"
+           placeholder="Rechercher un produit"
+           value="<?= htmlspecialchars($search) ?>">
+
+    <button class="btn btn-outline-success" type="submit">
+        Search
+    </button>
+</form>
 
 <?php foreach ($products as $product): ?>
 
@@ -23,19 +43,21 @@ $products = $products ?? [];
             <div class="card-body">
 
                 <h5 class="card-title">
-                    <?= $product['name'] ?>
+                    <?= htmlspecialchars($product['name']) ?>
                 </h5>
 
                 <p class="card-text">
-                    <?= $product['description'] ?>
+                    <?= htmlspecialchars($product['description']) ?>
                 </p>
-                <a href="/NexiShop/views/cart/add.php?id=<?= $product['id'] ?>" class="btn btn-primary">
-                    Ajouter au panier
-                </a>
 
                 <strong>
                     <?= $product['price'] ?> €
                 </strong>
+
+                <a href="/NexiShop/views/cart/add.php?id=<?= $product['id'] ?>"
+                   class="btn btn-primary mt-2">
+                    Ajouter au panier
+                </a>
 
             </div>
 

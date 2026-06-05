@@ -42,6 +42,8 @@ if(isset($_POST['add_product'])){
     }
 </style>
 
+<button class="btn btn-primary m-2"><a href="gestion-product.php" class="text-white text-decoration-none">retour à la liste des produits</a></button>
+
 <h1 class="mb-4">Ajouter des produits</h1>
 
 <div class="container">

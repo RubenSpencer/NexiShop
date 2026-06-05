@@ -25,7 +25,15 @@ try{
 
 // var_dump($products); // Affiche les produits récupérés de la base de données pour vérification
 
+
+
+
+
+
 ?> 
+
+<link rel="stylesheet" href="/NexiShop/assets/css/style.css">
+<link rel="stylesheet" href="/NexiShop/assets/css/admin.css">
 
 <button class="btn btn-primary m-2"><a href="../index.php" class="text-white text-decoration-none">retour à la page d'accueil</a></button>
 <h1 class="mb-5 mt-5">Liste des produits disponibles</h1>
@@ -35,7 +43,7 @@ try{
 <main class="container">
     <div class="row">
         <section class="col-12">
-            <table class="table">
+            <table class="table table-striped table-hover align-middle">
                 <thead>
                     <th>ID</th>
                     <th>Produit</th>
@@ -51,8 +59,8 @@ try{
                             <td><?= $product['price'] ?> €</td>
                             <td><?= $product['stock'] ?></td>
                             <td>
-                                <a href="edit-product.php?id=<?= $product['id'] ?>" class="btn btn-primary">Modifier</a>
-                                <a href="delete-product.php?id=<?= $product['id'] ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')">Supprimer</a>
+                                <a href="edit-product.php?id=<?= $product['id'] ?>" class="btn btn-sm btn-primary">Modifier</a>
+                                <a href="delete-product.php?id=<?= $product['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
