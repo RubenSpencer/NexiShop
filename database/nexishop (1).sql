@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 26 mai 2026 à 15:09
+-- Généré le : mar. 09 juin 2026 à 04:02
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -42,9 +42,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`, `stock`, `created_at`) VALUES
-(1, 'PC Gamer RTX', 'PC gaming haute performance', 1499.99, NULL, NULL, '2026-05-25 13:57:23'),
-(2, 'iPhone 15', 'Smartphone Apple', 999.99, NULL, NULL, '2026-05-25 13:57:23'),
-(3, 'Clavier mécanique', 'Clavier RGB mécanique', 89.90, NULL, NULL, '2026-05-25 13:57:23');
+(2, 'iPhone 15', 'Smartphone Apple', 1000.00, NULL, 4, '2026-05-25 13:57:23'),
+(3, 'Clavier mécanique', 'Clavier RGB mécanique', 90.00, NULL, 6, '2026-05-25 13:57:23'),
+(5, 'Ordinateur Pro', 'Ordinateur spécialisé pour le professionnelle ', 250.00, 'ThinkPad-X1-Carbon-450x368.png', 5, '2026-06-04 14:10:53');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created_at`) VALUES
-(1, 'Roro', 'rubendesir01@gmail.com', '', 'client', '2026-05-25 15:12:18');
+(1, 'Roro', 'rubendesir01@gmail.com', '', 'client', '2026-05-25 15:12:18'),
+(2, 'Admin', 'admin@nexishop.com', '$2y$10$OCiY7B6fe40Ve7cCnFd7I./y/aYHyDYc9Oag9wwCa.GgRsekcWVVy', 'admin', '2026-05-28 13:27:23');
 
 --
 -- Index pour les tables déchargées
@@ -92,13 +93,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
